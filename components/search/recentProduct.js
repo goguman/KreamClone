@@ -46,7 +46,7 @@ const recentProduct = () => {
     return (
         <div>
             <div className='searchText'>최근 본 상품</div>
-            <div className='flex mt-4 overflow-x-auto'>
+            <div className='flex mt-4 overflow-x-auto scrollbar-hide'>
                 {reProduct.map((ctTag, index) => (
                     <div className='text-center  mr-2'>
                         <div key={index} className='reProductSt'>

@@ -122,7 +122,7 @@ const popUpSize = (props) => {
     }, [closePop]);
 
     return (
-        <div className='bg-[#22222280] fixed w-screen z-0 inset-0'>
+        <div className='bg-[#22222280] fixed w-screen z-50 inset-0'>
             <div className='top-1/2 fixed left-1/2 bg-white w-[448px] h-[428px] -translate-x-1/2 -translate-y-40 border rounded-2xl ' ref={closePop}>
                 <div className='text-lg bg-white font-semibold pt-4 rounded-2xl h-[60px]'>
                     사이즈 선택

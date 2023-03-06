@@ -47,9 +47,6 @@ const registerForm = () => {
         if(isEmail && isPassword && size && isTerms) {
             console.log(choice);
             try {
-                console.log("@@@@");
-                console.log(isMessage);
-                console.log(isEmail);
                  axios.post('/api/auth/signUp',
                     {
                         email : email,

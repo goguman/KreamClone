@@ -97,7 +97,7 @@ const profile = () => {
                     <div className='border-b-[1px] pb-4 pt-4 text-[rgba(34,34,34,.5)] text-[14px]'>
                         <p className='font-[700]'>신발 사이즈</p>
                         <div className='flex items-center text-[16px]'>
-                            <p className='text-black text-[14px]'>●●●●●●●●●</p> <button className='ml-auto border-[1px] rounded-lg px-3 py-2 text-[12px] text-[rgba(34,34,34,.8)]'> 변경</button>
+                            <p className='text-black text-[14px]'>{userInfo.size}</p> <button className='ml-auto border-[1px] rounded-lg px-3 py-2 text-[12px] text-[rgba(34,34,34,.8)]'> 변경</button>
                         </div>
                     </div>
                 </div>

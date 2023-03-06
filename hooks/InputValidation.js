@@ -18,3 +18,9 @@ export function emailCheck(values) {
             return true;
         }
     }
+
+    export function onlyNumber(values){
+        const numberRegex =
+            /[^0-9]/g;
+        values.replace(numberRegex, "");
+    }

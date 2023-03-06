@@ -10,7 +10,7 @@ import RecentProduct from "./recentProduct";
 
 const searchForm = (props) => {
     return (
-        <div className='w-screen bg-white h-screen absolute  top-0 flex flex-col z-50 overflow-scroll' >
+        <div className='w-screen bg-white h-screen absolute  top-0 flex flex-col z-100 overflow-scroll noneScroll' >
             <div className='max-lg:w-screen  lg:mx-auto container  w-[800px] h-fit' >
                 <div className='max-lg:hidden'>
                     <div className='mt-3'>
