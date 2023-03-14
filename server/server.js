@@ -35,6 +35,7 @@ app.listen(PORT, () => {
 });
 
 app.get('/getProductList', (req, res) => {
+    console.log("@@@");
     console.log("req.query >> ");
     console.log(req.query);
     console.log(req.query["theme"]);

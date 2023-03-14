@@ -21,7 +21,7 @@ export default async function userInfo(req, res) {
             secretEmail += '*';
         }
         if(userInfo.image === null){
-            userInfo.image = '/mypage/defaultUser.png';
+            userInfo.image = '/images/mypage/defaultUser.png';
         }
         if(userInfo.name === null){
             userInfo.name = userInfo.email.split(/@/)[0];

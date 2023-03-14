@@ -1,7 +1,6 @@
 import { useSession } from 'next-auth/react';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-
 type userType = {
     name : string,
     size : string,
@@ -16,10 +15,7 @@ const profile = () => {
     const [userInfo, setUserInfo] = useState<userType[] | any>([]);
     useEffect(() => {
         if(session) {
-            try {
-            } catch (e) {
-                console.log(e);
-            }
+            console.log(session)
             axios.post('/api/auth/userInfo',
                 {
                     id : session.userId
@@ -33,7 +29,6 @@ const profile = () => {
                     setUserInfo(res.data);
                 })
         }
-        console.log(userInfo);
     },[]);
 
     return(

@@ -12,7 +12,7 @@ import { useRouter } from 'next/router';
 export default function TopBar(){
     //const isLogin = useSelector(state => state.isLogin);
     const [isLogin, setIsLogin] = useState(false);
-    const { data: session, status, token } = useSession();
+    const { data: session, status, token } = useState(useSession());
     const [searchOn, setSearchOn] = useState(false);
     const [signOutUrl, setSignOutUrl] = useState('');
     const router = useRouter();
@@ -21,14 +21,13 @@ export default function TopBar(){
     const onClickSearch = () => {
         setSearchOn(true);
     }
-
     return (
 
         <div className="outline-black  fixed top-0 w-screen bg-white z-40">
             <div className="flex flex-row justify-end space-x-6 h-6  text-sm text-gray-400 font-thin pr-4 items-center max-md:hidden text-[12px] text-black">
                 <div>고객센터</div>
                 <div>관심상품</div>
-                {(status === 'authenticated') ? <div className="hover:text-black cursor-pointer" onClick={()=>signOut({callbackUrl : '/'})}>로그아웃</div> : <Link href='/login' className="hover:text-black">로그인</Link>}
+                {(status==='authenticated') ? <div className="hover:text-black cursor-pointer" onClick={()=>signOut({callbackUrl : '/'})}>로그아웃</div> : <Link href='/login' className="hover:text-black">로그인</Link>}
             </div>
             <div className="flex bg-white  h-16  px-6 items-center">
                 <h1 className="font-bold font-size text-2xl italic">

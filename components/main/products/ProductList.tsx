@@ -1,40 +1,38 @@
 import Image from "next/image";
 import {useEffect, useState} from "react";
 import getProductList from "./getProductList";
-import {nanoid} from "nanoid";
 
-const ProductList = ({title, subTitle, themeName}) => {
-    const theme = themeName;
-    const [Products, setProducts] = useState([]);
-    const [Skip, setSkip] = useState(0);
-    const [Limit, setLimit] = useState(4);
-    const [LoadMoreBtn, setLoadMoreBtn] = useState(true);
-    const rowLimit = 4;
-    const {data} = getProductList(theme);
+    const ProductList = ({title, subTitle, themeName, key}) => {
+        const theme = themeName;
+        const [Products, setProducts] = useState([]);
+        const [Skip, setSkip] = useState(0);
+        const [Limit, setLimit] = useState(4);
+        const [LoadMoreBtn, setLoadMoreBtn] = useState(true);
+        const rowLimit = 4;
+        const {data} = getProductList(theme, key);
 
-    useEffect(() => {
-        let body = {
-            skip: Skip,
-            limit: Limit,
-        };
-        getProducts(body);
-    }, [data]);
+        useEffect(() => {
+            let body = {
+                skip: Skip,
+                limit: Limit,
+            };
+            getProducts(body);
+        }, [data]);
 
-    const getProducts = (body) => {
-        if(data == undefined) return;
+        const getProducts = (body) => {
+            if(data == undefined) return;
 
-        const productInfo = data.slice(body.skip, body.limit);
+            const productInfo = data.slice(body.skip, body.limit);
 
-        if(body.loadMore) {
-            setProducts([...Products, ...productInfo]);
-        } else {
-            setProducts(productInfo);
+            if(body.loadMore) {
+                setProducts([...Products, ...productInfo]);
+            } else {
+                setProducts(productInfo);
+            }
+            if(body.skip + rowLimit >= data.length) {
+                setLoadMoreBtn(false);
+            }
         }
-
-        if(body.skip + rowLimit >= data.length) {
-            setLoadMoreBtn(false);
-        }
-    }
 
     const loadMoreHandler = () => {
         let body = {
@@ -48,7 +46,7 @@ const ProductList = ({title, subTitle, themeName}) => {
     };
 
     return (
-        <div className="home_products mt-12 max-w-screen-xl mx-auto" key={nanoid()}>
+        <div className="home_products mt-12 max-w-screen-xl mx-auto">
             <div className="product_title px-10 mb-4">
                 <div className="title font-bold text-xl">{title}</div>
                 <div className="sub_title text-sm text-gray-400">{subTitle}</div>
